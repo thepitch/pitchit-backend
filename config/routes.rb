@@ -1,5 +1,32 @@
 Rails.application.routes.draw do
-  devise_for :users
+  # devise_for :users
+
+  root 'pitches#index'
+
+
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
+
+  devise_scope :user do
+    get "users/:id" => "users/profiles#show", as: :user
+  end
+
+  resources :comments, only: [:new, :create, :destroy]
+  resources :subcomments, only: [:new, :create, :destroy]
+
+  # The priority is based upon order of creation: first created -> highest priority.
+  # See how all your routes lay out with "rake routes".
+
+  # You can have the root of your site routed with "root"
+
+  resources :pitches
+
+  resources :votes, only: [:create, :update] do
+    member do
+      post :toggle
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
