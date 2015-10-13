@@ -3,20 +3,23 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
-    respond_to do |format|
-      format.json { render json: @comment }
-      format.html { render 'new' }
-    end
+    # respond_to do |format|
+    #   format.json { render json: @comment }
+    #   format.html { render 'new' }
+    # end
+
+    respond_with(@comment)
   end
 
   def create
     if current_user
       @comment = current_user.comments.build(comment_params)
       if @comment.save
-        respond_to do |format|
-          format.json { render json: @comment }
-          format.html { redirect_to pitch_path(@comment.pitch) }
-        end
+        # respond_to do |format|
+        #   format.json { render json: @comment }
+        #   format.html { redirect_to pitch_path(@comment.pitch) }
+        # end
+        respond_with(@comment)
       else
         status 422
       end
@@ -29,10 +32,12 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.destroy
     
-    respond_to do |format|
-      format.json { render json: "Success" }
-      format.html { redirect_to :back }
-    end
+    # respond_to do |format|
+    #   format.json { render json: "Success" }
+    #   format.html { redirect_to :back }
+    # end
+
+    respond_with("Success")
   end
 
   private

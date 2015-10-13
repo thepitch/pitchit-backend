@@ -1,20 +1,25 @@
 class SubcommentsController < ApplicationController
+  respond_to :html, :json
 
   def new
     @subcomment = Subcomment.new
-    respond_to do |format|
-      format.json { render json: @subcomment }
-    end
+    # respond_to do |format|
+    #   format.json { render json: @subcomment }
+    # end
+
+    respond_with(@subcomment)
   end
 
   def create
     if current_user
       @subcomment = current_user.comments.build(subcomment_params)
       if @subcomment.save
-        respond_to do |format|
-          format.json { render json: @subcomment }
-          format.html { redirect_to pitch_path(@subcomment.pitch) }
-        end
+        # respond_to do |format|
+        #   format.json { render json: @subcomment }
+        #   format.html { redirect_to pitch_path(@subcomment.pitch) }
+        # end
+
+        respond_with(@subcomment)
       else
         status 422
       end
@@ -27,11 +32,13 @@ class SubcommentsController < ApplicationController
     @subcomment = Subcomment.find(params[:id])
     @subcomment.destroy
 
-    respond_to do |format|
-      format.json { render json: "Success" }
-      format.html { redirect_to :back }
-    end 
+    # respond_to do |format|
+    #   format.json { render json: "Success" }
+    #   format.html { redirect_to :back }
+    # end 
     # redirect_to subcomments_path
+
+    respond_with("Success")
   end
 
   private
