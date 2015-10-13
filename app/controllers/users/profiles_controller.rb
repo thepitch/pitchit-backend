@@ -1,9 +1,13 @@
 class Users::ProfilesController < Devise::SessionsController
 # before_filter :configure_sign_in_params, only: [:create]
+  respond_to :json, :html  
+  
 
   def show
     @user = User.find(params[:id])
-    render :'devise/profiles/show' ## possible refactor
+
+    render json: @user
+    # render :'devise/profiles/show' ## possible refactor
   end
   # GET /resource/sign_in
   # def new
