@@ -1,10 +1,10 @@
 class ApplicationController < ActionController::API
-
+  respond_to :json, :html
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   # protect_from_forgery with: :exception
-  protect_from_forgery with: :null_session
+  # protect_from_forgery with: :null_session
   # before_action :authenticate_user!
 
   before_action :configure_sign_up_params, only: [:create], if: :devise_controller?
@@ -30,5 +30,5 @@ class ApplicationController < ActionController::API
     devise_parameter_sanitizer.for(:account_update) << :picture_url
   end
 
-  
+
 end

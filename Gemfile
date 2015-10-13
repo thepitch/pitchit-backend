@@ -16,6 +16,7 @@ gem 'devise'
 gem 'faker'
 
 gem 'jbuilder', '~> 2.0'
+gem 'responders'
 
 
 # To use ActiveModel has_secure_password

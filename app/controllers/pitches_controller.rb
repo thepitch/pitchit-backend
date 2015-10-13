@@ -4,26 +4,31 @@ class PitchesController < ApplicationController
   def index
     sort_type = params[:sort_type] || "hot"
     @pitches = Pitch.sort_pitches(sort_type)[0..14]
-    respond_to do |format|
-      format.json { render json: @pitches}
-      format.html { render partial: 'pitch_list', content_type: 'text/html' }
-    end
+    # respond_to do |format|
+    #   format.json { render json: @pitches}
+    #   format.html { render partial: 'pitch_list', content_type: 'text/html' }
+    # end
+
+    respond_with(@pitches)
   end
 
   def show 
     @pitch = Pitch.find(params[:id])
     @pitch_comments = @pitch.comments
     @subcomments = []
+
     @pitch_comments.each do |comment|
       @subcomments.concat(comment.subcomments)
     end
 
-    respond_to do |format|
-      format.json { render json: 
-                    { pitches: @pitches, pitchComments: @pitch_comments, subcomments: @subcomments} 
-                  }
-      format.html { render 'show' } 
-    end
+    # respond_to do |format|
+    #   format.json { render json: 
+    #                 { pitches: @pitches, pitchComments: @pitch_comments, subcomments: @subcomments} 
+    #               }
+    #   format.html { render 'show' } 
+    # end
+
+    respond_with(@pitch, @pitch_comments, @subcomments)
 
   # What do with @pitch.video.to_json ?
   end
