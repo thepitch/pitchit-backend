@@ -18,6 +18,8 @@ gem 'faker'
 gem 'jbuilder', '~> 2.0'
 gem 'responders'
 
+gem 'react-rails', '~> 1.3.0'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
