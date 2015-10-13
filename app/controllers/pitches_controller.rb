@@ -17,10 +17,14 @@ class PitchesController < ApplicationController
     @pitch_comments = @pitch.comments
     @subcomments = []
 
+
     @pitch_comments.each do |comment|
       @subcomments.concat(comment.subcomments)
     end
 
+    @pitch_data = { pitch: @pitch, 
+                    pitchComments: @pitch.comments, 
+                    subcomments: @subcomments }
     # respond_to do |format|
     #   format.json { render json: 
     #                 { pitches: @pitches, pitchComments: @pitch_comments, subcomments: @subcomments} 
@@ -28,7 +32,7 @@ class PitchesController < ApplicationController
     #   format.html { render 'show' } 
     # end
 
-    respond_with(@pitch, @pitch_comments, @subcomments)
+    respond_with(@pitch_data)
 
   # What do with @pitch.video.to_json ?
   end
@@ -36,27 +40,33 @@ class PitchesController < ApplicationController
   def new 
     @pitch = Pitch.new
 
-    respond_to do |format|
-      format.json { render json: @pitch }
-    end
+    # respond_to do |format|
+    #   format.json { render json: @pitch }
+    # end
+
+    respond_with(@pitch)
   end
 
   def edit
     @pitch = Pitch.find(params[:id])
 
-    respond_to do |format|
-      format.json { render json: @pitch }
-    end
+    # respond_to do |format|
+    #   format.json { render json: @pitch }
+    # end
+
+    respond_with(@pitch)
   end
 
   def create
     @pitch = current_user.pitches.new(pitch_params)
 
     if @pitch.save
-      respond_to do |format|
-        format.json { render json: @pitch }
-        format.html { redirect_to @pitch }
-      end
+      # respond_to do |format|
+      #   format.json { render json: @pitch }
+      #   format.html { redirect_to @pitch }
+      # end
+
+      respond_with(@pitch)
     else
       status 422
     end
@@ -66,10 +76,12 @@ class PitchesController < ApplicationController
     @pitch = Pitch.find(params[:id])
     @pitch.destroy
 
-    respond_to do |format|
-      format.html { render json: "Success" }
-      format.html { redirect_to pitches_path }
-    end
+    # respond_to do |format|
+    #   format.html { render json: "Success" }
+    #   format.html { redirect_to pitches_path }
+    # end
+
+    respond_with("Success")
   end
 
   private
