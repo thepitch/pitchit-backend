@@ -7,7 +7,7 @@ class SubcommentsController < ApplicationController
     #   format.json { render json: @subcomment }
     # end
 
-    respond_with(@subcomment)
+    respond_with({ data: @subcomment })
   end
 
   def create
@@ -19,7 +19,7 @@ class SubcommentsController < ApplicationController
         #   format.html { redirect_to pitch_path(@subcomment.pitch) }
         # end
 
-        respond_with(@subcomment)
+        respond_with({ data: @subcomment })
       else
         status 422
       end

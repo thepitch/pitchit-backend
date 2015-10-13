@@ -36,6 +36,8 @@ class VotesController < ApplicationController
                      voteCreated: vote_created }
     end
 
+    respond_with({ data: @voteData})
+
     # respond_with(@voteData)
 
     # if request.xhr?

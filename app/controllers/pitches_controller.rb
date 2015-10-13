@@ -9,11 +9,12 @@ class PitchesController < ApplicationController
     #   format.html { render partial: 'pitch_list', content_type: 'text/html' }
     # end
 
-    respond_with(@pitches)
+    respond_with({ data: @pitches })
   end
 
   def show 
     @pitch = Pitch.find(params[:id])
+    @pitch.num_votes = @pitch.votes.count
     @pitch_comments = @pitch.comments
     @subcomments = []
 
@@ -32,7 +33,7 @@ class PitchesController < ApplicationController
     #   format.html { render 'show' } 
     # end
 
-    respond_with(@pitch_data)
+    respond_with({ data: @pitch_data })
 
   # What do with @pitch.video.to_json ?
   end
@@ -44,7 +45,7 @@ class PitchesController < ApplicationController
     #   format.json { render json: @pitch }
     # end
 
-    respond_with(@pitch)
+    respond_with({ data: @pitch })
   end
 
   def edit
@@ -54,7 +55,7 @@ class PitchesController < ApplicationController
     #   format.json { render json: @pitch }
     # end
 
-    respond_with(@pitch)
+    respond_with({ data: @pitch })
   end
 
   def create
@@ -66,7 +67,7 @@ class PitchesController < ApplicationController
       #   format.html { redirect_to @pitch }
       # end
 
-      respond_with(@pitch)
+      respond_with({ data: @pitch })
     else
       status 422
     end

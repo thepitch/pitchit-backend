@@ -10,6 +10,7 @@ class Pitch < ActiveRecord::Base
 
   GRAVITY = 1.1
 
+  attr_accessor :num_votes
 
   def score
     self.votes.count / ((age/3600) + 2)**GRAVITY

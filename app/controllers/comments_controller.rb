@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     #   format.html { render 'new' }
     # end
 
-    respond_with(@comment)
+    respond_with({ data: @comment })
   end
 
   def create
@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
         #   format.json { render json: @comment }
         #   format.html { redirect_to pitch_path(@comment.pitch) }
         # end
-        respond_with(@comment)
+        respond_with({ data: @comment })
       else
         status 422
       end
