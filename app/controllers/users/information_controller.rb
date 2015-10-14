@@ -6,7 +6,11 @@ class Users::InformationController < Devise::SessionsController
 
   def show
 
-    render json: current_user
+    user = current_user
+
+    user = inject_extra_user_props(user)
+
+    render json: user
     # render :'devise/profiles/show' ## possible refactor
   end
   # GET /resource/sign_in
