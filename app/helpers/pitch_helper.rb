@@ -13,7 +13,7 @@ module PitchHelper
 
   def inject_extra_show_props(pitch)
     pitch_as_json = JSON.parse(pitch.to_json)
-    pitch_as_json["num_votes"] = pitch.votes.count
+    pitch_as_json["vote_count"] = pitch.votes.count
     pitch_as_json["comments"] = JSON.parse(pitch.comments.to_json)
     pitch_as_json["author"] = Pitch.find(pitch["id"]).user.full_name
     pitch_as_json["video"] = pitch.video
