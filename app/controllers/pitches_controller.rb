@@ -21,7 +21,7 @@ class PitchesController < ApplicationController
     #   format.html { render partial: 'pitch_list', content_type: 'text/html' }
     # end
 
-    respond_with(@json_response)
+    render json: @json_response
   end
 
   def show 
