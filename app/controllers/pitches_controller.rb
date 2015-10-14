@@ -70,11 +70,6 @@ class PitchesController < ApplicationController
     @pitch = current_user.pitches.new(pitch_params)
 
     if @pitch.save
-      # respond_to do |format|
-      #   format.json { render json: @pitch }
-      #   format.html { redirect_to @pitch }
-      # end
-
       respond_with({ data: @pitch })
     else
       status 422
@@ -85,12 +80,7 @@ class PitchesController < ApplicationController
     @pitch = Pitch.find(params[:id])
     @pitch.destroy
 
-    # respond_to do |format|
-    #   format.html { render json: "Success" }
-    #   format.html { redirect_to pitches_path }
-    # end
-
-    respond_with("Success")
+    redirect_to root_path
   end
 
   private
