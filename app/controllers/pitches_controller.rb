@@ -2,8 +2,17 @@ class PitchesController < ApplicationController
   respond_to :html, :json
 
   def index
+    # Send number of votes and relative time
+
     sort_type = params[:sort_type] || "hot"
     @pitches = Pitch.sort_pitches(sort_type)[0..14]
+
+    p "*" * 80
+    @json_response = JSON.parse(@pitches.to_json).map do |pitch|
+      pitch["created_at"] = "#{time_ago_in_words(pitch["created_at"])} ago"
+      pitch["vote_count"] = Pitch.find(pitch["id"]).votes.count
+    end.to_json
+    p "*" * 80
     # respond_to do |format|
     #   format.json { render json: @pitches}
     #   format.html { render partial: 'pitch_list', content_type: 'text/html' }

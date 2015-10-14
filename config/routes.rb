@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # devise_for :users
 
+  match '*all', to: 'application#preflight', via: [:options]
+
   root 'pitches#index'
 
 
