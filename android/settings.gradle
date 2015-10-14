@@ -1,0 +1,3 @@
+rootProject.name = 'thepitchnative'
+
+include ':app'
