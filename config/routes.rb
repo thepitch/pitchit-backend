@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get "users/:id" => "users/profiles#show", as: :user
+    get 'current-user' => "users/information#show"
   end
 
   resources :comments, only: [:new, :create, :destroy]
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
       post :toggle
     end
   end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

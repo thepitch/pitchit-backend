@@ -6,6 +6,7 @@ module PitchHelper
       pitch["vote_count"] = Pitch.find(pitch["id"]).votes.count
       pitch["comment_count"] = Pitch.find(pitch["id"]).comments.count
       pitch["author"] = Pitch.find(pitch["id"]).user.full_name
+      pitch["video"] = Pitch.find(pitch["id"]).video
       pitch
     end
   end
@@ -14,6 +15,7 @@ module PitchHelper
     pitch_as_json = JSON.parse(pitch.to_json)
     pitch_as_json["num_votes"] = pitch.votes.count
     pitch_as_json["comments"] = JSON.parse(pitch.comments.to_json)
+    pitch_as_json["video"] = pitch.video
     
     pitch_as_json["comments"].map! do |comment|
       comment["created_at"] = "#{time_ago_in_words(comment["created_at"])} ago"
