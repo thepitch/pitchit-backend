@@ -11,14 +11,15 @@ class PitchesController < ApplicationController
     @json_response = JSON.parse(@pitches.to_json).map do |pitch|
       pitch["created_at"] = "#{time_ago_in_words(pitch["created_at"])} ago"
       pitch["vote_count"] = Pitch.find(pitch["id"]).votes.count
-    end.to_json
+      pitch
+    end
     p "*" * 80
     # respond_to do |format|
     #   format.json { render json: @pitches}
     #   format.html { render partial: 'pitch_list', content_type: 'text/html' }
     # end
 
-    respond_with({ data: @pitches })
+    respond_with({ data: @json_response })
   end
 
   def show 
