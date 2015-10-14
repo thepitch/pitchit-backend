@@ -11,6 +11,7 @@ class PitchesController < ApplicationController
     @json_response = JSON.parse(@pitches.to_json).map do |pitch|
       pitch["created_at"] = "#{time_ago_in_words(pitch["created_at"])} ago"
       pitch["vote_count"] = Pitch.find(pitch["id"]).votes.count
+      pitch["comment_count"] = Pitch.find(pitch["id"]).comments.count
       pitch
     end
     p "*" * 80
