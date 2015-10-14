@@ -1,43 +1,39 @@
 class PitchesController < ApplicationController
   respond_to :html, :json
+  include PitchHelper
 
   def index
-    # Send number of votes and relative time
-
     sort_type = params[:sort_type] || "hot"
-    @pitches = Pitch.sort_pitches(sort_type)[0..14]
-
-    p "*" * 80
-    @json_response = JSON.parse(@pitches.to_json).map do |pitch|
-      pitch["created_at"] = "#{time_ago_in_words(pitch["created_at"])} ago"
-      pitch["vote_count"] = Pitch.find(pitch["id"]).votes.count
-      pitch["comment_count"] = Pitch.find(pitch["id"]).comments.count
-      pitch["author"] = Pitch.find(pitch["id"]).user.full_name
-      pitch
-    end
-    p "*" * 80
+    pitches = Pitch.sort_pitches(sort_type)[0..14]
+    json_response = inject_extra_index_props(pitches)
     # respond_to do |format|
     #   format.json { render json: @pitches}
     #   format.html { render partial: 'pitch_list', content_type: 'text/html' }
     # end
 
-    respond_with(@json_response)
+    respond_with(json_response)
   end
 
   def show 
-    @pitch = Pitch.find(params[:id])
-    @pitch.num_votes = @pitch.votes.count
-    @pitch_comments = @pitch.comments
-    @subcomments = []
+    pitch = Pitch.find(params[:id])
+
+    json_response = inject_extra_show_props(pitch)
+
+    p json_response
 
 
-    @pitch_comments.each do |comment|
-      @subcomments.concat(comment.subcomments)
-    end
+    # @pitch.num_votes = @pitch.votes.count
+    # @pitch_comments = @pitch.comments
+    # @subcomments = []
 
-    @pitch_data = { pitch: @pitch, 
-                    pitchComments: @pitch.comments, 
-                    subcomments: @subcomments }
+
+    # @pitch_comments.each do |comment|
+      # @subcomments.concat(comment.subcomments)
+    # end
+
+    # @pitch_data = { pitch: @pitch, 
+                    # pitchComments: @pitch.comments, 
+                    # subcomments: @subcomments }
     # respond_to do |format|
     #   format.json { render json: 
     #                 { pitches: @pitches, pitchComments: @pitch_comments, subcomments: @subcomments} 
@@ -45,7 +41,7 @@ class PitchesController < ApplicationController
     #   format.html { render 'show' } 
     # end
 
-    respond_with({ data: @pitch_data })
+    respond_with(json_response)
 
   # What do with @pitch.video.to_json ?
   end
