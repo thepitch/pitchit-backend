@@ -13,8 +13,11 @@ module UserInfoHelper
 
       if vote_obj.votable_type == "Pitch"
         vote["votable_title"] = vote_obj.votable.title
+        vote["votable_tagline"] = vote_obj.votable.tagline
       else
         vote["votable_title"] = vote_obj.votable.pitch.title
+        vote["votable_parent_id"] = vote_obj.votable.pitch.id
+        vote["votable_content"] = vote_obj.votable.content
       end
 
       vote
