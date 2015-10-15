@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   # before_action :get_current_user
 
   def show
-
     user = User.find(params["id"])
 
     if user
@@ -33,6 +32,10 @@ class UsersController < ApplicationController
   end
 
   def current_user
+    p "*" * 80
+    p session[:user_id]
+    p "*" * 80
+
     current_user = nil
 
     if session[:user_id]
@@ -40,7 +43,7 @@ class UsersController < ApplicationController
     end
 
 
-    render json: current_user
+    render json: session.to_json
   end
 
   def logout
@@ -55,8 +58,23 @@ class UsersController < ApplicationController
   # end
 
   def create
-    user = User.create!(email: params["email"], password: params[:password], first_name: params["first_name"], last_name: params[:last_name])
-    render json: user
+    p "*" * 80
+    p "This is the users params!"
+    p user_params
+    p "*" * 80
+
+
+    user = User.new(user_params)
+    user.password = user_params[:password]
+    
+    if user.save!
+      p "This worked!"
+      session[:user_id] = user.id
+      render json: user
+    else
+      p "This didn't work!"
+      render json: "Noooooo"
+    end
   end
 
   def destroy
@@ -67,6 +85,10 @@ class UsersController < ApplicationController
 
   end
 
+
+  def user_params
+    params.require(:user).require(:user).permit(:first_name, :last_name, :email, :password)
+  end
   # def get_current_user
   #   current_user = User.find
   # end

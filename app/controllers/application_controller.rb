@@ -10,13 +10,14 @@ class ApplicationController < ActionController::API
 
 
 
-  before_action :allow_cross_origin_requests#, if: proc { Rails.env.development? }
+  before_action :allow_cross_origin_requests   #, if: proc { Rails.env.development? }
 
   def preflight
     render nothing: true
   end
 
   private
+
   def allow_cross_origin_requests
     p request.headers['HTTP_ORIGIN']
     headers['Access-Control-Allow-Origin'] = '*'
