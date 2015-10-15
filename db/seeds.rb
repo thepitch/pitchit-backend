@@ -18,7 +18,7 @@
       phone: Faker::PhoneNumber.cell_phone,
       picture_url: Faker::Avatar.image,
       company: Faker::Company.name,
-      blurb: Faker::Lorem.paragraph
+      blurb: Faker::Hacker.say_something_smart
     )
 end
 ### EXTERNAL LINKS x 50
@@ -33,7 +33,7 @@ end
 25.times do
   Pitch.create(
     title: Faker::Name.title,
-    tagline: Faker::Lorem.sentence,
+    tagline: Faker::Hacker.say_something_smart,
     description: Faker::Lorem.paragraph,
     media: "https://www.youtube.com/watch?v=CdqoNKCCt7A",
     user_id: rand(1..25)
