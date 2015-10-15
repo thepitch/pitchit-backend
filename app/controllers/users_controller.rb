@@ -55,8 +55,17 @@ class UsersController < ApplicationController
   # end
 
   def create
-    user = User.create!(email: params["email"], password: params[:password], first_name: params["first_name"], last_name: params[:last_name])
-    render json: user
+    p params
+    user = User.new(email: params["email"], password: params[:password], first_name: params["first_name"], last_name: params[:last_name])
+    
+    if user.save
+      p "This worked!"
+      session[:user_id] = user.id
+      render json: user
+    else
+      p "This didn't work!"
+      render json: "Noooooo"
+    end
   end
 
   def destroy
