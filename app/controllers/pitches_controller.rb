@@ -54,7 +54,7 @@ class PitchesController < ApplicationController
     #   format.json { render json: @pitch }
     # end
 
-    respond_with({ data: @pitch })
+    respond_with(@pitch)
   end
 
   def edit
@@ -64,14 +64,14 @@ class PitchesController < ApplicationController
     #   format.json { render json: @pitch }
     # end
 
-    respond_with({ data: @pitch })
+    respond_with(@pitch)
   end
 
   def create
     @pitch = current_user.pitches.new(pitch_params)
 
     if @pitch.save
-      respond_with({ data: @pitch })
+      respond_with(@pitch)
     else
       status 422
     end
