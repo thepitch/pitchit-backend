@@ -18,10 +18,23 @@ class UsersController < ApplicationController
 
     current_user = User.find_by_email(params[:email])
     if current_user.password == params[:password]
+      session[:user_id] = current_user.id
+
       render json: current_user
     else
-      # redirect_to home_url
+      status 503
     end
+  end
+
+  def current_user
+    current_user = nil
+
+    if session[:user_id]
+      current_user = User.find(session[:user_id])
+    end
+
+
+    render json: current_user
   end
 
   def logout
