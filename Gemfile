@@ -19,6 +19,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'responders'
 
 gem 'react-rails'
+gem 'awesome_print'
 
 
 # To use ActiveModel has_secure_password
