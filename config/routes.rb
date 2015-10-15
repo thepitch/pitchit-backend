@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get '/pitch-of-the-week' => 'pitches#pitch_of_the_week'
 
+  get '/current-user' => 'users#current_user'
+
 
   resources :users
   resources :comments, only: [:new, :create, :destroy]

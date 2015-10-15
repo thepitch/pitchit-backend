@@ -54,7 +54,7 @@ class PitchesController < ApplicationController
     #   format.json { render json: @pitch }
     # end
 
-    respond_with({ data: @pitch })
+    respond_with(@pitch)
   end
 
   def edit
@@ -64,14 +64,14 @@ class PitchesController < ApplicationController
     #   format.json { render json: @pitch }
     # end
 
-    respond_with({ data: @pitch })
+    respond_with(@pitch)
   end
 
   def create
     @pitch = current_user.pitches.new(pitch_params)
 
     if @pitch.save
-      respond_with({ data: @pitch })
+      respond_with(@pitch)
     else
       status 422
     end
@@ -86,10 +86,7 @@ class PitchesController < ApplicationController
 
   def pitch_of_the_week
     pitch_of_the_week = Pitch.where("created_at > :week", {week: 1.week.ago }).sort_pitches("score").first
-    
     json_response = inject_extra_show_props(pitch_of_the_week)
-
-
     respond_with(json_response)
   end
 
