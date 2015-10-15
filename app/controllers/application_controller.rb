@@ -10,7 +10,7 @@ class ApplicationController < ActionController::API
 
 
 
-  before_action :allow_cross_origin_requests, if: proc { Rails.env.development? }
+  before_action :allow_cross_origin_requests#, if: proc { Rails.env.development? }
 
   def preflight
     render nothing: true
@@ -18,11 +18,19 @@ class ApplicationController < ActionController::API
 
   private
   def allow_cross_origin_requests
+    p request.headers['HTTP_ORIGIN']
     headers['Access-Control-Allow-Origin'] = '*'
     headers['Access-Control-Request-Method'] = '*'
     headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
     headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
     headers['Access-Control-Max-Age'] = '1728000'
+    # if /\Ahttps?:\/\/localhost:8080\z/ =~ request.headers['HTTP_ORIGIN']
+    #   p "************************"
+    #   p headers['Access-Control-Allow-Origin']
+    #   p "I'M HIT!"
+    #   headers['Access-Control-Allow-Origin'] = request.headers['HTTP_ORIGIN']
+    #   p headers['Access-Control-Allow-Origin']
+    # end
   end
 
 

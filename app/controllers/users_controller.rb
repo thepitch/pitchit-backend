@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   respond_to :html, :json
   include UserInfoHelper
-  before_action :get_current_user
+  # before_action :get_current_user
 
   def show
     user = User.where(id, parmas[:id])
@@ -33,11 +33,12 @@ class UsersController < ApplicationController
   # end
 
   def create
-    p params
+    p request
+    p "*********************"
 
-    user = User.new(params[:user])
-    user.password = params[:password]
-    user.save!
+    p params
+    user = User.new(email: params["email"], password)
+
 
   end
 
@@ -49,8 +50,8 @@ class UsersController < ApplicationController
 
   end
 
-  def get_current_user
-    current_user = User.find
-  end
+  # def get_current_user
+  #   current_user = User.find
+  # end
 
 end
