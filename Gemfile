@@ -11,8 +11,8 @@ gem 'spring', :group => :development
 gem 'pg'
 
 
-gem 'devise'
-
+# gem 'devise'
+gem 'bcrypt'
 gem 'faker'
 
 gem 'jbuilder', '~> 2.0'

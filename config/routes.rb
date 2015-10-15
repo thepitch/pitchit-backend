@@ -8,15 +8,7 @@ Rails.application.routes.draw do
   get '/pitch-of-the-week' => 'pitches#pitch_of_the_week'
 
 
-  devise_for :users, controllers: {
-    sessions: 'users/sessions'
-  }
-
-  devise_scope :user do
-    get "users/:id" => "users/profiles#show", as: :user
-    get 'current-user' => "users/information#show"
-  end
-
+  resources :users
   resources :comments, only: [:new, :create, :destroy]
   resources :subcomments, only: [:new, :create, :destroy]
 

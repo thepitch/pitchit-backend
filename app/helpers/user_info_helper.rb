@@ -23,7 +23,7 @@ module UserInfoHelper
       vote
     end
 
-    user_as_json["pitches"] = JSON.parse(user.pitches.to_json) 
+    user_as_json["pitches"] = JSON.parse(user.pitches.to_json)
     user_as_json["pitches"].map! do |pitch|
       pitch["vote_count"] = Pitch.find(pitch["id"]).votes.count
       pitch
@@ -36,6 +36,11 @@ module UserInfoHelper
     end
 
     user_as_json
+  end
+
+  def current_user(user)
+    current_user_as_json = inject_extra_user_props(user)
+    current_user_as_json["signed_in"] = true
   end
 
 end
