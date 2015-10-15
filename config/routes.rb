@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   root 'pitches#index'
 
+  get '/pitch-of-the-week' => 'pitches#pitch_of_the_week'
+
 
   devise_for :users, controllers: {
     sessions: 'users/sessions'

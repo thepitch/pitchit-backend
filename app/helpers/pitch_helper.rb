@@ -17,6 +17,7 @@ module PitchHelper
     pitch_as_json["comments"] = JSON.parse(pitch.comments.to_json)
     pitch_as_json["author"] = Pitch.find(pitch["id"]).user.full_name
     pitch_as_json["video"] = pitch.video
+    pitch_as_json["created_at"] = "#{time_ago_in_words(pitch.created_at)} ago"
     
     pitch_as_json["comments"].map! do |comment|
       comment["created_at"] = "#{time_ago_in_words(comment["created_at"])} ago"

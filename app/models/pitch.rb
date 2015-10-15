@@ -38,9 +38,9 @@ class Pitch < ActiveRecord::Base
     if sort_type == "new"
       Pitch.order(created_at: :DESC)
     elsif sort_type == "top"
-      Pitch.joins(:votes).group("votable_id").order("count(votes.id) DESC")
+      Pitch.all.sort { |p1, p2| p2.votes.count <=> p1.votes.count }
     elsif sort_type == "most_discussed"
-      Pitch.joins(:comments).group("pitch_id").order("count(comments.id) DESC")
+      Pitch.all.sort { |p1, p2| p2.comments.count <=> p1.comments.count }
     else
       Pitch.all.sort { |p1, p2| p2.score <=> p1.score }
     end

@@ -6,12 +6,13 @@ class PitchesController < ApplicationController
     sort_type = params[:sort_type] || "hot"
     pitches = Pitch.sort_pitches(sort_type)[0..14]
     json_response = inject_extra_index_props(pitches)
+
     # respond_to do |format|
     #   format.json { render json: @pitches}
     #   format.html { render partial: 'pitch_list', content_type: 'text/html' }
     # end
 
-    respond_with(json_response)
+    render json: json_response
   end
 
   def show 
@@ -81,6 +82,15 @@ class PitchesController < ApplicationController
     @pitch.destroy
 
     redirect_to root_path
+  end
+
+  def pitch_of_the_week
+    pitch_of_the_week = Pitch.where("created_at > :week", {week: 1.week.ago }).sort_pitches("score").first
+    
+    json_response = inject_extra_show_props(pitch_of_the_week)
+
+
+    respond_with(json_response)
   end
 
   private
