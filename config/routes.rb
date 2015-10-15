@@ -8,7 +8,13 @@ Rails.application.routes.draw do
   get '/pitch-of-the-week' => 'pitches#pitch_of_the_week'
 
 
-  resources :users
+  resources :users do
+    # member do
+    post :login, on: :collection
+    post :signup, on: :collection
+    post :logout, on: :collection
+    # end
+  end
   resources :comments, only: [:new, :create, :destroy]
   resources :subcomments, only: [:new, :create, :destroy]
 

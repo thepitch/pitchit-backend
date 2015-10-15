@@ -37,6 +37,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
+    awesome_print (1.6.1)
     babel-source (5.8.26)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
@@ -124,6 +125,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   bcrypt
   faker
   jbuilder (~> 2.0)
