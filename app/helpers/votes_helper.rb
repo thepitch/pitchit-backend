@@ -1,12 +1,16 @@
 module VotesHelper
   def bookmark
 
-    @vote = Vote.where(user_id: current_user, votable_id: params[:votable_id], votable_type: params[:votable_type]).first
+    p "PARAMS ******************"
+    p params
+    p "PARAMS ******************"
+
+    @vote = Vote.find_by(user_id: params["user_id"], votable_id: params["votable_id"], votable_type: params["votable_type"])
     if @vote
       @vote.update(bookmarked: !@vote.bookmarked)
       return false
     else
-      @vote = current_user.votes.create!(votable_id: params[:votable_id], votable_type: params[:votable_type], bookmarked: true)
+      @vote = User.find(params[:user_id]).votes.create!(votable_id: params[:votable_id], votable_type: params[:votable_type], bookmarked: true)
       return true
     end
   end
