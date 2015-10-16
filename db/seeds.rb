@@ -112,7 +112,7 @@ Pitch.create(
   title: "PitchIt",
   tagline: "How do you know if you have a good idea? Pitch it!",
   description: "Your first focus group. Enough said.",
-  media: "https://www.youtube.com/watch?v=CdqoNKCCt7A",
+  media: "https://www.youtube.com/watch?v=fM8jqcHcYBI",
   user_id: 1,
   )
 
@@ -121,7 +121,7 @@ Pitch.create(
   title: "Restaurant Roulette",
   tagline: "Hangry - When you are so hungry that your lack of food causes you to become angry, frustrated or both. Welcome Team Restaurant Roulette!",
   description: "Allowing groups to make a quick restaurant choice. Every member of the group gets to vote on two specific preferences for a restaurant (example: affordable, vegetarian options, accepts credit cards, etc). App will take the majority preferences into consideration and return a random restaurant from the pre-filtered pool of restaurants.",
-  media: "https://www.youtube.com/watch?v=CdqoNKCCt7A",
+  media: "https://www.youtube.com/watch?v=fM8jqcHcYBI",
   user_id: 2,
   )
 
@@ -129,7 +129,7 @@ Pitch.create(
   title: "Track My Truck",
   tagline: "And if you're still thinking about lunch, let TrackMyTruck guide you.",
   description: "Feature missing from yelp. Food trucks are mobile, yelp is built for static locations. In SF they are stationary, but EVERYWHERE else you can never find them. Some tweet, others update a website. This brings all the foodtruck info to one place and links it to yelp for reviews",
-  media: "https://www.youtube.com/watch?v=CdqoNKCCt7A",
+  media: "https://www.youtube.com/watch?v=CHAu-RRm6Dw",
   user_id: 3,
   )
 
@@ -137,7 +137,7 @@ Pitch.create(
   title: "Generocity",
   tagline: "A convenient way to help people in need.",
   description: "We're kinda quiet, but we want to help people.",
-  media: "https://www.youtube.com/watch?v=CdqoNKCCt7A",
+  media: "https://www.youtube.com/watch?v=_I5qr6yRDM4",
   user_id: 4,
   )
 
@@ -145,7 +145,7 @@ Pitch.create(
   title: "Crowdj.io",
   tagline: "The way crowds listen to music.",
   description: "We're kinda quiet, but we want to help people.",
-  media: "https://www.youtube.com/watch?v=CdqoNKCCt7A",
+  media: "https://www.youtube.com/watch?v=MB-kWVLjPWw",
   user_id: 5,
   )
 
@@ -153,7 +153,7 @@ Pitch.create(
   title: "DecideIt",
   tagline: "We did three final projects instead of one!",
   description: "We're kinda quiet, but we want to help people.",
-  media: "https://www.youtube.com/watch?v=CdqoNKCCt7A",
+  media: "https://www.youtube.com/watch?v=PQq57PEQ31E",
   user_id: 6,
   )
 
@@ -161,7 +161,7 @@ Pitch.create(
   title: "Clutch",
   tagline: "Do new things. Meet new people. Come in clutch.",
   description: "We're kinda quiet, but we want to help people.",
-  media: "https://www.youtube.com/watch?v=CdqoNKCCt7A",
+  media: "https://www.youtube.com/watch?v=-YtYIj8-ezQ",
   user_id: 7,
   )
 

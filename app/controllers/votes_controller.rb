@@ -7,7 +7,7 @@ class VotesController < ApplicationController
     if params[:bookmarked] == "true"
       vote_created = self.bookmark
     else
-      current_user.votes.create!(votable_id: params[:votable_id], votable_type: params[:votable_type])
+      User.find(params[:user_id]).votes.create!(votable_id: params[:votable_id], votable_type: params[:votable_type])
     end
 
     
@@ -21,7 +21,7 @@ class VotesController < ApplicationController
                      voteCreated: vote_created }
     end
 
-    respond_with({ data: @voteData})
+    render json: { data: @voteData})
   end
 
 end
