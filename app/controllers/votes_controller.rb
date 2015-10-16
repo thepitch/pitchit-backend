@@ -11,21 +11,6 @@ class VotesController < ApplicationController
     end
 
     
-    # respond_to do |format|
-    #   format.json do 
-    #     if params[:votable_type] == "Pitch"
-    #       render json: {
-    #       newVoteNum: Pitch.find(params[:votable_id]).votes.count,
-    #       pitchId: params[:votable_id],
-    #       voteCreated: vote_created }
-    #     else 
-    #       render json: Comment.find(params[:votable_id]).votes.count
-    #     end
-    #   end
-    #   format.html { redirect_to :back }
-    # end
-
-    
     if params[:votable_type] == "Pitch"
       @voteData = { newVoteNum: Pitch.find(params[:votable_id]).votes.count,
                      pitchId: params[:votable_id],
@@ -37,22 +22,6 @@ class VotesController < ApplicationController
     end
 
     respond_with({ data: @voteData})
-
-    # respond_with(@voteData)
-
-    # if request.xhr?
-    #   if params[:votable_type] == "Pitch"
-    #     render json: {
-    #         newVoteNum: Pitch.find(params[:votable_id]).votes.count,
-    #         pitchId: params[:votable_id],
-    #         voteCreated: vote_created
-    #       }
-    #   else
-    #     render json: Comment.find(params[:votable_id]).votes.count
-    #   end
-    # else
-    #   redirect_to :back
-    # end
   end
 
 end

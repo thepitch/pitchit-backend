@@ -7,10 +7,6 @@ class PitchesController < ApplicationController
     pitches = Pitch.sort_pitches(sort_type)[0..14]
     json_response = inject_extra_index_props(pitches)
 
-    # respond_to do |format|
-    #   format.json { render json: @pitches}
-    #   format.html { render partial: 'pitch_list', content_type: 'text/html' }
-    # end
 
     render json: json_response
   end
@@ -23,36 +19,13 @@ class PitchesController < ApplicationController
     p json_response
 
 
-    # @pitch.num_votes = @pitch.votes.count
-    # @pitch_comments = @pitch.comments
-    # @subcomments = []
-
-
-    # @pitch_comments.each do |comment|
-      # @subcomments.concat(comment.subcomments)
-    # end
-
-    # @pitch_data = { pitch: @pitch, 
-                    # pitchComments: @pitch.comments, 
-                    # subcomments: @subcomments }
-    # respond_to do |format|
-    #   format.json { render json: 
-    #                 { pitches: @pitches, pitchComments: @pitch_comments, subcomments: @subcomments} 
-    #               }
-    #   format.html { render 'show' } 
-    # end
 
     respond_with(json_response)
 
-  # What do with @pitch.video.to_json ?
   end
 
   def new 
     @pitch = Pitch.new
-
-    # respond_to do |format|
-    #   format.json { render json: @pitch }
-    # end
 
     respond_with(@pitch)
   end
@@ -60,9 +33,6 @@ class PitchesController < ApplicationController
   def edit
     @pitch = Pitch.find(params[:id])
 
-    # respond_to do |format|
-    #   format.json { render json: @pitch }
-    # end
 
     respond_with(@pitch)
   end
