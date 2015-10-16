@@ -20,14 +20,16 @@ class UsersController < ApplicationController
   # end
 
   def login
-    p params[:user][:email]
+    p params
     p "HIT"
     current_user = User.find_by_email(params[:user][:email])
-    if current_user.password == params[:user][:password]
+
+
+    if current_user && current_user.password == params[:user][:password]
       session[:user_id] = current_user.id
       render json: current_user
     else
-      status 503
+      render json: "Invalid Login"
     end
   end
 
