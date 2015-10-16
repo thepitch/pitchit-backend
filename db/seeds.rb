@@ -112,7 +112,7 @@ Pitch.create(
   title: "PitchIt",
   tagline: "How do you know if you have a good idea? Pitch it!",
   description: "Your first focus group. Enough said.",
-  media: "https://www.youtube.com/watch?v=fM8jqcHcYBI",
+  media: "https://www.youtube.com/watch?v=-YtYIj8-ezQ",
   user_id: 1,
   )
 
@@ -153,7 +153,7 @@ Pitch.create(
   title: "DecideIt",
   tagline: "We did three final projects instead of one!",
   description: "We're kinda quiet, but we want to help people.",
-  media: "https://www.youtube.com/watch?v=PQq57PEQ31E",
+  media: "https://www.youtube.com/watch?v=mdeqQV7b8cQ",
   user_id: 6,
   )
 
@@ -161,7 +161,7 @@ Pitch.create(
   title: "Clutch",
   tagline: "Do new things. Meet new people. Come in clutch.",
   description: "We're kinda quiet, but we want to help people.",
-  media: "https://www.youtube.com/watch?v=-YtYIj8-ezQ",
+  media: "https://www.youtube.com/watch?v=PQq57PEQ31E",
   user_id: 7,
   )
 

@@ -41,10 +41,10 @@ class PitchesController < ApplicationController
     p "Creating a pitch!"
 
 
-    @pitch = current_user.pitches.new(pitch_params)
+    @pitch = User.find(pitch_params[:user_id]).pitches.new(pitch_params)
 
     if @pitch.save
-      respond_with(@pitch)
+      render json: JSON.parse(@pitch.to_json)
     else
       status 422
     end
@@ -66,10 +66,12 @@ class PitchesController < ApplicationController
   private
 
   def pitch_params
-    params.require(:pitch).permit(:title,
+    params.require(:pitch).require(:pitch).permit(:title,
       :tagline,
       :description,
-      :media)
+      :media,
+      :user_id)
+
   end
 
 end
