@@ -15,7 +15,7 @@ class PitchesController < ApplicationController
     render json: json_response
   end
 
-  def show 
+  def show
     pitch = Pitch.find(params[:id])
 
     json_response = inject_extra_show_props(pitch)
@@ -32,14 +32,14 @@ class PitchesController < ApplicationController
       # @subcomments.concat(comment.subcomments)
     # end
 
-    # @pitch_data = { pitch: @pitch, 
-                    # pitchComments: @pitch.comments, 
+    # @pitch_data = { pitch: @pitch,
+                    # pitchComments: @pitch.comments,
                     # subcomments: @subcomments }
     # respond_to do |format|
-    #   format.json { render json: 
-    #                 { pitches: @pitches, pitchComments: @pitch_comments, subcomments: @subcomments} 
+    #   format.json { render json:
+    #                 { pitches: @pitches, pitchComments: @pitch_comments, subcomments: @subcomments}
     #               }
-    #   format.html { render 'show' } 
+    #   format.html { render 'show' }
     # end
 
     respond_with(json_response)
@@ -47,7 +47,7 @@ class PitchesController < ApplicationController
   # What do with @pitch.video.to_json ?
   end
 
-  def new 
+  def new
     @pitch = Pitch.new
 
     # respond_to do |format|
