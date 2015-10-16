@@ -4,6 +4,8 @@ class VotesController < ApplicationController
   
   def create
 
+    p params
+
     if params[:bookmarked] == "true"
       vote_created = self.bookmark
     else
@@ -21,7 +23,8 @@ class VotesController < ApplicationController
                      voteCreated: vote_created }
     end
 
-    render json: { data: @voteData})
+    render json: @voteData
+  
   end
 
 end
