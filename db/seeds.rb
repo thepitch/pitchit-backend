@@ -87,6 +87,217 @@ User.create(
   blurb: Faker::Hacker.say_something_smart
   )
 
+User.create(
+  first_name: "Amrita",
+  last_name: "Athwal",
+  email: "amrita@gmail.com",
+  password: "password",
+  phone: "555-555-5555",
+  picture_url: "https://avatars0.githubusercontent.com/u/7738890?v=3&s=460",
+  company: "Dev Bootcamp",
+  blurb: Faker::Hacker.say_something_smart
+  )
+
+User.create(
+  first_name: "Alessandra",
+  last_name: "Faist",
+  email: "alessandra@gmail.com",
+  password: "password",
+  phone: "555-555-5555",
+  picture_url: "https://avatars2.githubusercontent.com/u/12245067?v=3&s=460",
+  company: "Dev Bootcamp",
+  blurb: Faker::Hacker.say_something_smart
+  )
+
+User.create(
+  first_name: "Alfred",
+  last_name: "Lam",
+  email: "alfred@gmail.com",
+  password: "password",
+  phone: "555-555-5555",
+  picture_url: "https://avatars1.githubusercontent.com/u/12229487?v=3&s=460",
+  company: "Dev Bootcamp",
+  blurb: Faker::Hacker.say_something_smart
+  )
+
+User.create(
+  first_name: "Ana",
+  last_name: "Nelson",
+  email: "ana@gmail.com",
+  password: "password",
+  phone: "555-555-5555",
+  picture_url: "https://avatars3.githubusercontent.com/u/10505622?v=3&s=460",
+  company: "Dev Bootcamp",
+  blurb: Faker::Hacker.say_something_smart
+  )
+
+User.create(
+  first_name: "Anthony",
+  last_name: "Castelli",
+  email: "anthony@gmail.com",
+  password: "password",
+  phone: "555-555-5555",
+  picture_url: "https://avatars2.githubusercontent.com/u/3802248?v=3&s=460",
+  company: "Dev Bootcamp",
+  blurb: Faker::Hacker.say_something_smart
+  )
+
+User.create(
+  first_name: "Benjamin",
+  last_name: "Hsieh",
+  email: "benj@gmail.com",
+  password: "password",
+  phone: "555-555-5555",
+  picture_url: "https://avatars2.githubusercontent.com/u/12074119?v=3&s=460",
+  company: "Dev Bootcamp",
+  blurb: Faker::Hacker.say_something_smart
+  )
+
+User.create(
+  first_name: "Brian",
+  last_name: "Park",
+  email: "brian@gmail.com",
+  password: "password",
+  phone: "555-555-5555",
+  picture_url: "https://avatars1.githubusercontent.com/u/12618896?v=3&s=460",
+  company: "Dev Bootcamp",
+  blurb: Faker::Hacker.say_something_smart
+  )
+
+User.create(
+  first_name: "Nruthya",
+  last_name: "Lakshminarasimhan",
+  email: "nruthya@gmail.com",
+  password: "password",
+  phone: "555-555-5555",
+  picture_url: "https://avatars1.githubusercontent.com/u/11263123?v=3&s=460",
+  company: "Dev Bootcamp",
+  blurb: Faker::Hacker.say_something_smart
+  )
+
+User.create(
+  first_name: "Gabriel",
+  last_name: "Firmacion",
+  email: "gabriel@gmail.com",
+  password: "password",
+  phone: "555-555-5555",
+  picture_url: "https://avatars0.githubusercontent.com/u/11845130?v=3&s=460",
+  company: "Dev Bootcamp",
+  blurb: Faker::Hacker.say_something_smart
+  )
+
+User.create(
+  first_name: "Jennifer",
+  last_name: "Poeng",
+  email: "jennifer@gmail.com",
+  password: "password",
+  phone: "555-555-5555",
+  picture_url: "https://avatars3.githubusercontent.com/u/12090354?v=3&s=460",
+  company: "Dev Bootcamp",
+  blurb: Faker::Hacker.say_something_smart
+  )
+
+User.create(
+  first_name: "Lisa",
+  last_name: "Swanson",
+  email: "jennifer@gmail.com",
+  password: "password",
+  phone: "555-555-5555",
+  picture_url: "https://avatars3.githubusercontent.com/u/11699845?v=3&s=460",
+  company: "Dev Bootcamp",
+  blurb: Faker::Hacker.say_something_smart
+  )
+
+User.create(
+  first_name: "Madison",
+  last_name: "Sites",
+  email: "madison@gmail.com",
+  password: "password",
+  phone: "555-555-5555",
+  picture_url: "https://avatars2.githubusercontent.com/u/8879305?v=3&s=460",
+  company: "Dev Bootcamp",
+  blurb: Faker::Hacker.say_something_smart
+  )
+
+User.create(
+  first_name: "Moses",
+  last_name: "Jung",
+  email: "moses@gmail.com",
+  password: "password",
+  phone: "555-555-5555",
+  picture_url: "https://avatars3.githubusercontent.com/u/12589043?v=3&s=460",
+  company: "Dev Bootcamp",
+  blurb: Faker::Hacker.say_something_smart
+  )
+
+User.create(
+  first_name: "Priyanka",
+  last_name: "Saigal",
+  email: "priyanka@gmail.com",
+  password: "password",
+  phone: "555-555-5555",
+  picture_url: "https://avatars0.githubusercontent.com/u/12552669?v=3&s=460",
+  company: "Dev Bootcamp",
+  blurb: Faker::Hacker.say_something_smart
+  )
+
+User.create(
+  first_name: "Scott",
+  last_name: "Stern",
+  email: "scott@gmail.com",
+  password: "password",
+  phone: "555-555-5555",
+  picture_url: "https://avatars1.githubusercontent.com/u/10355544?v=3&s=460",
+  company: "Dev Bootcamp",
+  blurb: Faker::Hacker.say_something_smart
+  )
+
+User.create(
+  first_name: "Thomas",
+  last_name: "Voegeli",
+  email: "thomas@gmail.com",
+  password: "password",
+  phone: "555-555-5555",
+  picture_url: "https://avatars1.githubusercontent.com/u/11672765?v=3&s=460",
+  company: "Dev Bootcamp",
+  blurb: Faker::Hacker.say_something_smart
+  )
+
+User.create(
+  first_name: "Stephanie",
+  last_name: "Hutson",
+  email: "stephanie@gmail.com",
+  password: "password",
+  phone: "555-555-5555",
+  picture_url: "https://avatars2.githubusercontent.com/u/9794021?v=3&s=460",
+  company: "Dev Bootcamp",
+  blurb: Faker::Hacker.say_something_smart
+  )
+
+User.create(
+  first_name: "Utsab",
+  last_name: "Saha",
+  email: "stephanie@gmail.com",
+  password: "password",
+  phone: "555-555-5555",
+  picture_url: "https://avatars3.githubusercontent.com/u/6780322?v=3&s=460",
+  company: "Dev Bootcamp",
+  blurb: Faker::Hacker.say_something_smart
+  )
+
+User.create(
+  first_name: "Xander",
+  last_name: "Peterson",
+  email: "xandor@gmail.com",
+  password: "password",
+  phone: "555-555-5555",
+  picture_url: "https://avatars2.githubusercontent.com/u/12554540?v=3&s=460",
+  company: "Dev Bootcamp",
+  blurb: Faker::Hacker.say_something_smart
+  )
+
+
+
 25.times do
   User.create(
       first_name: Faker::Name.first_name,
@@ -268,6 +479,6 @@ end
   Comment.create(
     content: Faker::Hacker.say_something_smart,
     pitch_id: rand(1..7),
-    user_id: rand(1..7)
+    user_id: rand(1..26)
   )
 end

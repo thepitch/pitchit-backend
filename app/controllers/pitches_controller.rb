@@ -38,7 +38,6 @@ class PitchesController < ApplicationController
   end
 
   def create
-    p "Creating a pitch!"
 
 
     @pitch = User.find(pitch_params[:user_id]).pitches.new(pitch_params)
