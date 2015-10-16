@@ -196,7 +196,7 @@ end
   Vote.create(
     user_id: rand(1..25),
     votable_type: ["Pitch", "Comment"].sample,
-    votable_id: rand(1..25),
+    votable_id: rand(8..25),
     bookmarked: false
   )
 end
@@ -255,11 +255,19 @@ end
   )
 end
 
-145.times do
+444.times do
   Vote.create(
     user_id: rand(1..25),
     votable_type: "Pitch",
     votable_id: 7,
     bookmarked: false
+  )
+end
+
+1000.times do
+  Comment.create(
+    content: Faker::Hacker.say_something_smart,
+    pitch_id: rand(1..7),
+    user_id: rand(1..7)
   )
 end
