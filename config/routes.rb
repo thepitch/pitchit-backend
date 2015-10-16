@@ -1,4 +1,38 @@
 Rails.application.routes.draw do
+  # devise_for :users
+
+  match '*all', to: 'application#preflight', via: [:options]
+
+  root 'pitches#index'
+
+  get '/pitch-of-the-week' => 'pitches#pitch_of_the_week'
+
+  get '/current-user' => 'users#current_user'
+
+
+  resources :users do
+    # member do
+    post :login, on: :collection
+    post :signup, on: :collection
+    post :logout, on: :collection
+    # end
+  end
+  resources :comments, only: [:new, :create, :destroy]
+  resources :subcomments, only: [:new, :create, :destroy]
+
+  # The priority is based upon order of creation: first created -> highest priority.
+  # See how all your routes lay out with "rake routes".
+
+  # You can have the root of your site routed with "root"
+
+  resources :pitches
+
+  resources :votes, only: [:create, :update] do
+    member do
+      post :toggle
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -11,6 +11,18 @@ gem 'spring', :group => :development
 gem 'pg'
 
 
+# gem 'devise'
+gem 'bcrypt'
+gem 'faker'
+
+gem 'jbuilder', '~> 2.0'
+gem 'responders'
+
+gem 'react-rails'
+gem 'awesome_print'
+
+
+gem 'rack-cors', :require => 'rack/cors'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
