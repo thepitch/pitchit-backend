@@ -11,12 +11,10 @@ class PitchesController < ApplicationController
     render json: json_response
   end
 
-  def show 
+  def show
     pitch = Pitch.find(params[:id])
 
     json_response = inject_extra_show_props(pitch)
-
-    p json_response
 
 
 
@@ -24,7 +22,7 @@ class PitchesController < ApplicationController
 
   end
 
-  def new 
+  def new
     @pitch = Pitch.new
 
     respond_with(@pitch)

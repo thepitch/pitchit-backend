@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   respond_to :html, :json
-
+  include CommentHelper
   def new
     @comment = Comment.new
 
@@ -9,29 +9,27 @@ class CommentsController < ApplicationController
   end
 
   def create
-    if current_user
-      @comment = current_user.comments.build(comment_params)
-      if @comment.save
-        respond_with({ data: @comment })
+    comment = Comment.new(comment_params)
+    user_id = params[:comment]["user_id"]
+    current_user = User.find(user_id)
+      if comment.save!
+        json_response = inject_extra_comment_props(comment)
+        render json: json_response
       else
-        status 422
+        render json: "noooooo"
       end
-    else 
-      status 503
-    end
   end
 
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-  
 
     respond_with("Success")
   end
 
   private
- 
+
   def comment_params
-    params.require(:comment).permit(:content, :pitch_id)
+    params.require(:comment).permit(:content, :pitch_id, :user_id)
   end
 end

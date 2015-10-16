@@ -20,8 +20,6 @@ class UsersController < ApplicationController
   # end
 
   def login
-    p params
-    p "HIT"
     current_user = User.find_by_email(params[:user][:email])
 
 
@@ -34,9 +32,6 @@ class UsersController < ApplicationController
   end
 
   def current_user
-    p "*" * 80
-    p session[:user_id]
-    p "*" * 80
 
     current_user = nil
 
@@ -60,21 +55,17 @@ class UsersController < ApplicationController
   # end
 
   def create
-    p "*" * 80
-    p "This is the users params!"
-    p user_params
-    p "*" * 80
 
 
     user = User.new(user_params)
     user.password = user_params[:password]
-    
+
     if user.save!
-      p "This worked!"
+
       session[:user_id] = user.id
       render json: user
     else
-      p "This didn't work!"
+
       render json: "Noooooo"
     end
   end

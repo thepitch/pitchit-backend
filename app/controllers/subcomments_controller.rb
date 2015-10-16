@@ -1,25 +1,41 @@
 class SubcommentsController < ApplicationController
   respond_to :html, :json
-
+  include SubcommentHelper
   def new
     @subcomment = Subcomment.new
 
+    @user_id = User.find(session[:user_id])
 
-    respond_with({ data: @subcomment })
+
+    respond_with({ data: @subcomment, current_user: @user_id })
   end
 
   def create
-    if current_user
-      @subcomment = current_user.comments.build(subcomment_params)
-      if @subcomment.save
 
-        respond_with({ data: @subcomment })
+    subcomment = Subcomment.new(subcomment_params)
+    user_id = params[:subcomment]["user_id"]
+    current_user = User.find(user_id)
+      if subcomment.save!
+        json_response = inject_extra_subcomment_props(subcomment)
+        render json: json_response
       else
-        status 422
+        render json: "noooooo"
       end
-    else 
-      status 503
-    end
+    # if current_user
+    #   @subcomment = current_user.comments.build(subcomment_params)
+    #   if @subcomment.save
+    #     # respond_to do |format|
+    #     #   format.json { render json: @subcomment }
+    #     #   format.html { redirect_to pitch_path(@subcomment.pitch) }
+    #     # end
+
+    #     respond_with({ data: @subcomment })
+    #   else
+    #     status 422
+    #   end
+    # else
+    #   status 503
+    # end
   end
 
   def destroy
@@ -33,7 +49,7 @@ class SubcommentsController < ApplicationController
   private
 
   def subcomment_params
-    params.require(:subcomment).permit(:content, :comment_id)
+    params.require(:subcomment).permit(:content, :comment_id, :user_id)
   end
 
 end
