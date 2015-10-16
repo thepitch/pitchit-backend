@@ -19,7 +19,6 @@ class ApplicationController < ActionController::API
   private
 
   def allow_cross_origin_requests
-    p request.headers['HTTP_ORIGIN']
     headers['Access-Control-Allow-Origin'] = '*'
     headers['Access-Control-Request-Method'] = '*'
     headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'

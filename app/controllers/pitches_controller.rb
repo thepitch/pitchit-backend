@@ -20,8 +20,6 @@ class PitchesController < ApplicationController
 
     json_response = inject_extra_show_props(pitch)
 
-    p json_response
-
 
     # @pitch.num_votes = @pitch.votes.count
     # @pitch_comments = @pitch.comments
