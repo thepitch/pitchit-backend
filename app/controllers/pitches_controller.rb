@@ -38,6 +38,9 @@ class PitchesController < ApplicationController
   end
 
   def create
+    p "Creating a pitch!"
+
+
     @pitch = current_user.pitches.new(pitch_params)
 
     if @pitch.save
