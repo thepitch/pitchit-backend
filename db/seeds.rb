@@ -475,7 +475,7 @@ end
   )
 end
 
-1000.times do
+300.times do
   Comment.create(
     content: Faker::Hacker.say_something_smart,
     pitch_id: rand(1..7),
