@@ -389,7 +389,7 @@ end
 ### Comments x 25
 25.times do
   Comment.create(
-    content: Faker::Lorem.paragraph,
+    content: Faker::Hacker.say_something_smart,
     pitch_id: rand(1..25),
     user_id: rand(1..25)
   )
@@ -397,7 +397,7 @@ end
 ### subcomments x50
 50.times do
   Subcomment.create(
-    content: Faker::Lorem.paragraph,
+    content: Faker::Hacker.say_something_smart,
     comment_id: rand(1..25),
     user_id: rand(1..25)
   )
