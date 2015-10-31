@@ -8,7 +8,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-### USER x 25
+### USER
 User.create(
   first_name: "Kevin",
   last_name: "Kennis",
@@ -86,7 +86,7 @@ User.create(
   company: "Dev Bootcamp",
   blurb: "I am ready to fully commit to a dynamic, engaged team to build something unbelievable, meaningful and beautiful."
   )
-### PITCHES x 25
+### PITCHES
 Pitch.create(
   title: "PitchIt",
   tagline: "How do you know if you have a good idea? Pitch it!",
